@@ -12,15 +12,14 @@ export const countriesSlice = createSlice({
     initialState,
     reducers: {
         setCountries: (state, action) => {
-            console.log(state)
-            state.value.countriesList = action.payload;
-            state.value.isPending = true;
+            state.countriesList = action.payload;
+            state.isPending = false;
 
         },
         setError: (state, action) => {
-            state.value.errorMsg = action.payload;
-            state.value.error = true;
-            state.value.isPending = false;
+            state.errorMsg = action.payload;
+            state.error = true;
+            state.isPending = false;
         },
         isPending: (state) => {
             state.isPending = true;

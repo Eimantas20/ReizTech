@@ -1,0 +1,19 @@
+.pagination-container {
+    /* display: flex; */
+    margin: 0 auto;
+    width: fit-content
+}
+
+.pagination-container button {
+    border: unset;
+    border-radius: 50%; 
+    width: 40px;
+    height: 40px;
+    /* padding: 1rem; */
+    background-color: brown;
+    margin: 0.5rem;
+}
+
+.pagination-container button:hover {
+    cursor: pointer;
+}
