@@ -5,17 +5,23 @@ import { useDispatch } from 'react-redux';
 const Filter = () => {
     const dispatch = useDispatch();
 
-
     return (
         <div className='filter-container'>
             <label>Sort By Alphabet</label>
-            <select onChange={(e) => dispatch(setAlphabet(e.target.value))}>
-                <option value='asc'>Ascendic</option>   
-                <option value='decs'>Descendic</option>
-            </select>
-            {/* May create a toggle button */}
-            <button onClick={() => dispatch(setOceaniaRegion())}>Countries in Oceania region</button>
-            <button onClick={() => dispatch(setSmallerThanLT())}>Countries smaller then Lithuania</button>
+            <div className='filter select'>
+                <select onChange={(e) => dispatch(setAlphabet(e.target.value))}>
+                    <option value='asc'>Ascending</option>
+                    <option value='desc'>Descending</option>
+                </select>
+            </div>
+            <div className='filter'>
+                <label>Countries in Oceania region</label>
+                <input className='toggleBtn' type='checkbox' onClick={() => dispatch(setSmallerThanLT())} />
+            </div>
+            <div className='filter'>
+                <label>Countries smaller then Lithuania</label>
+                <input className='toggleBtn' type='checkbox' onClick={() => dispatch(setOceaniaRegion())} />
+            </div>
         </div>
     )
 }

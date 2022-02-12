@@ -2,6 +2,7 @@ import '../styles/country.css';
 
 const Country = ({country}) => {
     const { name, region, area } = country;
+    
     return (
         <div className='country-container'>
             <p>{name}</p>

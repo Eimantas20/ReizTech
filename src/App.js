@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import './styles/App.css';
+import './styles/app.css';
+import './styles/constants.css';
 import CountriesList from './components/CountriesList';
 import Filter from './components/Filter';
 

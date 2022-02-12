@@ -14,7 +14,6 @@ export const countriesSlice = createSlice({
         setCountries: (state, action) => {
             state.countriesList = action.payload;
             state.isPending = false;
-
         },
         setError: (state, action) => {
             state.errorMsg = action.payload;
@@ -26,7 +25,6 @@ export const countriesSlice = createSlice({
         }
     }
 })
-
 
 export const { setCountries, setError, isPending } = countriesSlice.actions;
 
