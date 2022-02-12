@@ -11,7 +11,7 @@ const Filter = () => {
             <label>Sort By Alphabet</label>
             <select onChange={(e) => dispatch(setAlphabet(e.target.value))}>
                 <option value='asc'>Ascendic</option>   
-                <option value='decs'>Descendic</option>
+                <option value='desc'>Descendic</option>
             </select>
             {/* May create a toggle button */}
             <button onClick={() => dispatch(setOceaniaRegion())}>Countries in Oceania region</button>
