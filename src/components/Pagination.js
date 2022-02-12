@@ -25,7 +25,7 @@ const Pagination = ({ currentPage, pagesArr, changePage}) => {
         <div className='pagination-container'>
             <button onClick={(e) => changePage(e, 1)} >{backString}</button>
             {newValue.map((item, i) => (
-                <button key={i} onClick={(e) => changePage(e, item)}>{item}</button>
+                <button key={i} className={currentPage === item ? 'current-page' : null} onClick={(e) => changePage(e, item)}>{item}</button>
             ))}
             <button onClick={(e) => changePage(e, pagesArr.length)} >{forwardString}</button>
         </div>

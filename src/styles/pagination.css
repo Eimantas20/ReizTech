@@ -14,6 +14,11 @@
     margin: 0.5rem;
 }
 
+.pagination-container button.current-page {
+    background-color: black;
+    color: white;
+}
+
 .pagination-container button:hover {
     cursor: pointer;
 }

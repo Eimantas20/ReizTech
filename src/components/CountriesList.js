@@ -71,11 +71,16 @@ const CountriesList = () => {
 
     if (filters.alphabet) {
         list = [...filteredCountries];
-        filteredCountries = sortByAlphabet()
+        filteredCountries = sortByAlphabet();
     }
 
     const amountOfPages = Math.ceil(filteredCountries.length / 10);
     pagesArr = Array.from(Array(amountOfPages).keys(), value => value + 1);
+
+    filteredCountries.length && currentPage > pagesArr.length && setCurrentPage(pagesArr.length)
+    
+        
+    
 
 
     const currentPageCountries = filteredCountries.slice((currentPage * 10) - 10 , currentPage * 10);
