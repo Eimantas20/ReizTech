@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ReizTech/static/css/main.68a1aa11.css",
+    "main.js": "/ReizTech/static/js/main.4f1ca50a.js",
+    "index.html": "/ReizTech/index.html",
+    "main.68a1aa11.css.map": "/ReizTech/static/css/main.68a1aa11.css.map",
+    "main.4f1ca50a.js.map": "/ReizTech/static/js/main.4f1ca50a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.68a1aa11.css",
+    "static/js/main.4f1ca50a.js"
+  ]
+}
