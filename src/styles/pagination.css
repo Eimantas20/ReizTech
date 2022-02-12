@@ -1,7 +1,7 @@
 .pagination-container {
-    /* display: flex; */
     margin: 0 auto;
-    width: fit-content
+    width: fit-content;
+    margin-top: auto;
 }
 
 .pagination-container button {
@@ -9,9 +9,15 @@
     border-radius: 50%; 
     width: 40px;
     height: 40px;
-    /* padding: 1rem; */
-    background-color: brown;
+	box-shadow:0px 1px 1px 1px var(--light-gray);
     margin: 0.5rem;
+	transition: all 0.2s;
+    cursor: pointer;
+}
+
+.pagination-container button p {
+    margin: 0;
+    padding: 0;
 }
 
 .pagination-container button.current-page {
@@ -19,6 +25,9 @@
     color: white;
 }
 
-.pagination-container button:hover {
-    cursor: pointer;
+
+.pagination-container button:active {
+    background-color: white;
+    color: black;
+    transform: translateY(1px);
 }

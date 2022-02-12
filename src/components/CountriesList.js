@@ -3,15 +3,15 @@ import { useState, useEffect } from "react";
 import Pagination from './Pagination';
 import { useDispatch, useSelector } from "react-redux";
 import { setCountries, isPending, setError } from "../features/countriesSlice";
-
+import '../styles/countriesList.css';
 
 const CountriesList = () => {
     const [ currentPage, setCurrentPage ] = useState(1);
     const dispatch = useDispatch();
     const countries = useSelector((state) => state.countries.countriesList);
+    const pending = useSelector((state) => state.countries.isPending);
+    const error = useSelector(state => state.countries.error)
     const filters = useSelector((state) => state.filters)
-    let pagesArr;
-    let list;
     const lithuaniasArea = 65300;
     const countriesInOceania = ['Australia', 'Papua New Guinea', 'New Zealand', 'Fiji', 'Solomon Islands,',
         'Micronesia', 'Vanuatu', 'Samoa', 'Kiribati', 'Tonga', 'Marshall Islands', 'Palau', ' Tuvalu', 'Nauru'];
@@ -20,9 +20,9 @@ const CountriesList = () => {
         fetchData();        
     }, [])
 
-    const fetchData = async () => {
-        dispatch(isPending())
-        await fetch('https://restcountries.com/v2/all?fields=name,region,area')
+    const fetchData = () => {
+        dispatch(isPending());
+        fetch('https://restcountries.com/v2/all?fields=name,region,area')
             .then(response => response.json())
             .then(data => dispatch(setCountries(data)) )
             .catch(err => dispatch(setError(err)));
@@ -33,7 +33,6 @@ const CountriesList = () => {
         setCurrentPage(page)
     }
    
-
     let filteredCountries = countries.filter(country => {
         let count = 0;
         for (let filter in filters) {
@@ -60,7 +59,7 @@ const CountriesList = () => {
 
 
     const sortByAlphabet = () => {
-
+        let list = [...filteredCountries];
         if(filters.alphabet === 'asc') {
             return list.sort((a, b) => a.name.localeCompare(b.name));
 
@@ -70,34 +69,37 @@ const CountriesList = () => {
     }
 
     if (filters.alphabet) {
-        list = [...filteredCountries];
         filteredCountries = sortByAlphabet();
     }
 
     const amountOfPages = Math.ceil(filteredCountries.length / 10);
-    pagesArr = Array.from(Array(amountOfPages).keys(), value => value + 1);
+    let pagesArr = Array.from(Array(amountOfPages).keys(), value => value + 1);
 
     filteredCountries.length && currentPage > pagesArr.length && setCurrentPage(pagesArr.length)
     
-        
-    
-
-
     const currentPageCountries = filteredCountries.slice((currentPage * 10) - 10 , currentPage * 10);
 
     return (
         <>
-            <div className='countrieslist-header'>
+            <div className='countries-list-header'>
                 <p>Name</p>
                 <p>Area</p>
                 <p>Region</p>
             </div>
-            {currentPageCountries && currentPageCountries.length > 0 ? currentPageCountries.map((country, i ) => 
-                <Country country={country} key={i} />
-            ) : <h1>Loading</h1> }
-            <Pagination currentPage={currentPage} changePage={changePage} pagesArr={pagesArr} />
+            {error ? 
+                <h1>Sorry, something went wrong, please come back later</h1> 
+                : pending ? 
+                <h1>Loading</h1> 
+                    : <div className='countries-list-container'>
+                    {currentPageCountries.map((country, i) =>
+                        <Country country={country} key={i} />
+                    )}
+                    <Pagination currentPage={currentPage} changePage={changePage} pagesArr={pagesArr} />
+                </div>
+                
+                }
         </>
     )
 }
 
-export default CountriesList
+export default CountriesList     

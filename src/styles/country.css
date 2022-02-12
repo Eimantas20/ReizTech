@@ -1,4 +1,5 @@
-.country-container, .countrieslist-header {
+.country-container, .countries-list-header {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
 }

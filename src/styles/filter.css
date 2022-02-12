@@ -1,3 +1,82 @@
 .filter-container {
-    width: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.filter {
+	display: flex;
+	align-items: center;
+	margin-right: 1rem;
+}
+
+.filter-container label {
+	margin-right: 0.5rem;
+}
+
+.filter-container input.toggleBtn {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	outline: none;
+	position: relative;
+	width: 50px;
+	height:26px;
+	border-radius: 13px;
+	transition: background-color 0.4s;
+	box-shadow:0px 1px 1px 1px var(--light-gray);
+	cursor:pointer;
+}
+
+.filter-container input.toggleBtn:before {
+	content: '';
+	position: absolute;
+	top:3px;
+	left:3px;
+	height: 20px;
+	width: 20px;
+	box-shadow:0px 1px 1px 1px var(--light-gray);
+	background-color: white;
+	border-radius: 10px;
+	transition: transform 0.4s;
+}
+
+.filter-container input.toggleBtn:checked {
+	background-color: var(--light-green);
+}
+
+.filter-container input.toggleBtn:checked:before {
+	transform: translate(24px);
+}
+
+.select select {
+	appearance: none;
+	background-color: transparent;
+	border: none;
+	margin: 0;
+	width: 100%;
+	background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+	background-color: #fff;
+	border-radius: 0.25em;
+	cursor: pointer;
+	border: 1px solid var(--border-gray);
+	padding: 0.5rem;
+	cursor: pointer;
+	outline: none;
+}
+
+.select {
+	position: relative;
+	max-width: 150px;
+	width:100%;
+}
+
+.select:after{
+	content: '';
+	position: absolute;
+	width: 0.7rem;
+	height: 0.7rem;
+	right: 0.5rem;
+	background-color: black;
+	clip-path: polygon(0 0, 50% 50%, 100% 0, 50% 100%);
 }

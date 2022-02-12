@@ -1,0 +1,10 @@
+.countries-list-header p {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid black;
+}
+
+.countries-list-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 600px;
+}
